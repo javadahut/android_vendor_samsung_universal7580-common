@@ -1,0 +1,48 @@
+# aptX - from marlin - OPM1.171019.011
+lib/libaptX_encoder.so|984739a0bc968e18f75ced205733fe3f51c2d4f0
+lib/libaptXHD_encoder.so|974c486e4ca03faa0713553d9dfe2995ac93e01c
+
+# Camera
+lib/libhwjpeg.so
+lib/libuniplugin.so
+lib/libsensorlistener.so
+
+# GPS
+bin/gpsd
+bin/gps.cer
+lib/hw/gps.default.so:lib/hw/gps.universal7580.so
+lib/libwrappergps.so
+lib/libfloatingfeature.so
+
+# Graphics
+vendor/lib/egl/libGLES_mali.so
+
+# Mobicore
+bin/cs
+
+# RIL
+lib/libsec-ril.so
+lib/libsec-ril-dsds.so
+
+# protobuf
+lib/libprotobuf-cpp-fl26.so|f2436050b38e5acb63d36ad7b24a0c2612d68749
+
+# OMX - from a3xeltexx (A310FXXU4CRG2)
+lib/omx/libOMX.Exynos.AVC.Decoder.so|068a5120f2b4adbe888293931c2ddae92dcecd49
+lib/omx/libOMX.Exynos.AVC.Encoder.so|eaef14d4c26e6b0d27ba8a7d3ba109810450053a
+lib/omx/libOMX.Exynos.MPEG4.Decoder.so|4246f3d7695da33c482852eb4bd34a56c9183b48
+lib/omx/libOMX.Exynos.MPEG4.Encoder.so|371668ced35a70f327b3e723d774a14505cff341
+lib/omx/libOMX.Exynos.VP8.Decoder.so|338a089ac76e867eb795343dce4ee2b5326b0c77
+lib/omx/libOMX.Exynos.VP8.Encoder.so|2f13479cc28b6e3cfa92202326bc26e812a4f620
+lib/omx/libOMX.Exynos.WMV.Decoder.so|829ee8de0450615bf573c418d5205de3c33b50a1
+
+# RIL
+lib/libsecnativefeature.so
+
+# Widevine
+vendor/lib/mediadrm/libdrmclearkeyplugin.so
+lib/libstagefright_hdcp.so
+lib/liboemcrypto.so
+
+# Widevine - from angler (OPR6.170623.017)
+vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab

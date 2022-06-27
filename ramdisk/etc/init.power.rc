@@ -1,0 +1,68 @@
+on boot
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack 20000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 900000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 89
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "80 1100000:88 1200000:94 1300000:97 1400000:99"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay "50000 1100000:50000 1200000:50000 1300000:50000 1400000:100000"
+
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1500000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 99
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads 90
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 20000
+
+    # Change permissions for the CPU governor settings
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+
+    # change permissions for all cpusets we touch at runtime
+    chown system system /dev/cpuset/cpus
+    chown system system /dev/cpuset/foreground/cpus
+    chown system system /dev/cpuset/background/cpus
+    chown system system /dev/cpuset/system-background/cpus
+    chown system system /dev/cpuset/top-app/cpus
+    chmod 0664 /dev/cpuset/cpus
+    chmod 0664 /dev/cpuset/foreground/cpus
+    chmod 0664 /dev/cpuset/background/cpus
+    chmod 0664 /dev/cpuset/system-background/cpus
+    chmod 0664 /dev/cpuset/top-app/cpus
+
+    # Change permissions of the CPU online settings
+    chown system system /sys/devices/system/cpu/cpu0/online
+    chown system system /sys/devices/system/cpu/cpu1/online
+    chown system system /sys/devices/system/cpu/cpu2/online
+    chown system system /sys/devices/system/cpu/cpu3/online
+    chown system system /sys/devices/system/cpu/cpu4/online
+    chown system system /sys/devices/system/cpu/cpu5/online
+    chown system system /sys/devices/system/cpu/cpu6/online
+    chown system system /sys/devices/system/cpu/cpu7/online
+    chmod 0664 /sys/devices/system/cpu/cpu0/online
+    chmod 0664 /sys/devices/system/cpu/cpu1/online
+    chmod 0664 /sys/devices/system/cpu/cpu2/online
+    chmod 0664 /sys/devices/system/cpu/cpu3/online
+    chmod 0664 /sys/devices/system/cpu/cpu4/online
+    chmod 0664 /sys/devices/system/cpu/cpu5/online
+    chmod 0664 /sys/devices/system/cpu/cpu6/online
+    chmod 0664 /sys/devices/system/cpu/cpu7/online
+
+    # Permissions for input_booster
+    chown system radio /sys/class/input_booster/level
+    chown system radio /sys/class/input_booster/head
+    chown system radio /sys/class/input_booster/tail
+    chmod 0664 /sys/class/input_booster/level
+    chmod 0664 /sys/class/input_booster/head
+    chmod 0664 /sys/class/input_booster/tail
+
+# Kernel Workqueue
+    chown system system /sys/module/workqueue/parameters/power_efficient
+    chmod 0664 /sys/module/workqueue/parameters/power_efficient
